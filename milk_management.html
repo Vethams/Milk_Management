@@ -18,8 +18,8 @@
         .login-container {
             background: rgba(255, 255, 255, 0.8);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
         .login-container h2 {
@@ -28,14 +28,14 @@
         }
         .login-container input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
         .login-container button {
             width: 100%;
-            padding: 10px;
+            padding: 0.5rem;
             background-color: #0078d7;
             color: white;
             border: none;
@@ -47,37 +47,18 @@
         }
         .error {
             color: red;
-            margin-top: 10px;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button onclick="login()">Login</button>
-        <p class="error" id="error-message"></p>
+        <form action="https://vethams.github.io/main/" method="GET">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
     </div>
-
-    <script>
-        // Check if user is already logged in
-        if (sessionStorage.getItem("authenticated") === "true") {
-            window.location.href = "https://vethams.github.io/main/";
-        }
-
-        function login() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
-
-            if (username === "admin" && password === "admin") {
-                sessionStorage.setItem("authenticated", "true");
-                window.location.href = "https://vethams.github.io/main/";
-            } else {
-                errorMessage.textContent = "Invalid username or password!";
-            }
-        }
-    </script>
 </body>
 </html>
